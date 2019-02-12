@@ -9,7 +9,8 @@ body,html{
     overflow-x: hidden;
     background: #040d13;
     color: white;
-    scroll-behavior: smooth;
+    overflow-y: scroll; /* has to be scroll, not auto */
+    -webkit-overflow-scrolling: touch;
 }
 @font-face{
     src: url("../fonts/BebasNeue-Regular.ttf");
@@ -89,7 +90,7 @@ h3{
     left: 0;
     opacity: 0.4;
 }
-#banner img{
+#banner img,.bannerImg{
     width: 100%;
     float: left;
 }
@@ -97,7 +98,7 @@ h3{
 #starterCon,
 #mainCon,
 #dessertCon,
-#drinkCon,
+#drinksCon,
 #sidesCon{
     height: auto;
     width: 100%;
@@ -106,7 +107,7 @@ h3{
 #starters:checked ~ #starterCon,
 #main:checked ~ #mainCon,
 #dessert:checked ~ #dessertCon,
-#drink:checked ~ #drinkCon,
+#drink:checked ~ #drinksCon,
 #sides:checked ~ #sidesCon{
     height: 0;
     padding: 0;
@@ -138,19 +139,27 @@ h3{
     font-family: arial, sans-serif;
     font-weight: bold;
 }
-.pFull{
-    bottom: 1.5rem;
+.pFull {
+    bottom: 0;
     right: 1.5rem;
     font-size: 4rem;
-    text-shadow: 0.2rem 0.2rem 0 #000;
+    /* text-shadow: 0.2rem 0.2rem 0 #000; */
     line-height: 3rem;
+    padding: 0.7rem 0.5rem 1.5rem 0.7rem;
+    background: rgba(0,0,0,0.8);
+    border-radius: 1rem 1rem 0 0;
 }
-.pDiscount{
-    bottom: 4.5rem;
-    right: 4rem;
-    font-size: 3rem;
-    color: black;
-    text-decoration: line-through;
+.pDiscount {
+    bottom: 5.5rem;
+    right: 0;
+    font-size: 2rem;
+    color: white;
+    background: rgba(0,0,0,0.8);
+    display: block;
+    float: right;
+    padding: 0.5rem 2rem 0.5rem 0.5rem;
+    font-style: italic;
+    border-radius: 1rem 0 0 1rem;
 }
 .allergi{
     float: left;
@@ -173,7 +182,7 @@ h3{
     float: left;
 }
 .shortD{
-    float: left;
+
     display: block;
     width: 100%;
     margin: 0 0 1.5rem 0;
@@ -189,6 +198,74 @@ h3{
     z-index: 1;
     border-radius: 1rem 1rem 0 0;
 }
-.display{
+.hide{
     display: none;
+}
+@media (min-width: 768px){
+    #banLogo{
+        top: 0;
+        width: 81% !important
+    }
+    #banner {
+        height: auto;
+    }
+    h1 span {
+        display: block
+    }
+    #starterCon, #mainCon, #dessertCon, #drinksCon, #sideordersCon {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-columns: 1fr;
+    grid-auto-rows: 1fr;
+    }
+    .dishContainer {
+        float: left;
+        break-inside: avoid;
+    }
+}@media (min-width: 1280px){
+    #banLogo{
+        width: 62% !important
+    }
+    #banner {
+        height: auto;
+    }
+    h1 span {
+        font-size: 30rem;
+        line-height: 22.7rem;
+    }
+#starterCon, #mainCon, #dessertCon, #drinksCon, #sideordersCon {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-columns: 1fr;
+    grid-auto-rows: 1fr;
+    margin: 0 auto 0 auto;
+    width: 87%
+    }
+    .dishContainer {
+        float: left;
+        break-inside: avoid;
+    }
+    h2 {
+        padding: 0 0 0 8.5rem;
+    }
+}
+@media (min-width: 1920px){
+    #banLogo {
+    width: 56% !important;
+    }
+    #starterCon, #mainCon, #dessertCon, #drinksCon, #sideordersCon {
+        width: 57%;
+    }
+    h2 {
+        padding: 0 0 0 41.5rem;
+    }
+    .bannerImg {
+        width: 57%;
+        width: 57%;
+        float: left;
+        margin-left: 21%;
+    }
+    h1 span {
+        margin: 0 22% 0 0;
+    }
 }
