@@ -27,113 +27,90 @@
     </div>
     <h1><span>taste of</span> <span>modern</span> <span>Russia</span></h1>
     <main>
-        <label for="starters">
-            <picture>
-                <source media="(min-width: 1920px)" srcset="/petrograd/img/cat_big_starter.jpg">
-                <source media="(min-width: 1280px)" srcset="/petrograd/img/cat_semi_starter.jpg">
-                <source media="(min-width: 764px)" srcset="/petrograd/img/cat_medium_starter.jpg">
-                <img class="bannerImg" src="/petrograd/img/cat_small_starter.jpg" alt="Click to open starters">
-            </picture>
-            <h2>Starters</h2>
-            <!--section id="starters"></section-->
-        </label>
-        <input type="checkbox" id="starters">
-        <section id="starterCon">
-            <!--dishes start-->
+    <div class="modal ">
+        <aside class="modal-content">
+            <h3 class="modal-name">Herro</h3>
+            <img src="#" alt="#" class="modal-img">
+            <p class="modal-price">152</p>
+            <p class="modal-desc">asdasf</p>
+        </aside>
+    </div>
 
-            <!--dishes end-->
+        <!--Category start-->
+        <section id="startersCat"></section>
+        <!--Category send-->
+        <!--dishes start-->
+        <section id="starterCon"></section>
+        <!--dishes end-->
 
-        </section>
-
-        <label for="main">
-            <picture>
-                <source media="(min-width: 1920px)" srcset="/petrograd/img/cat_big_main.jpg">
-                <source media="(min-width: 1280px)" srcset="/petrograd/img/cat_semi_main.jpg">
-                <source media="(min-width: 764px)" srcset="/petrograd/img/cat_medium_main.jpg">
-                <img class="bannerImg" src="/petrograd/img/cat_small_main.jpg" alt="Click to open main dishes">
-            </picture>
-            <h2>main</h2>
-        </label>
-        <input type="checkbox" id="main" >
-
+        <!--Category start-->
+        <section id="mainCat"></section>
+        <!--Category send-->
         <!--dishes start-->
         <section id="mainCon">
         </section>
         <!--dishes end-->
 
-        <label for="dessert">
-            <picture>
-                <source media="(min-width: 1920px)" srcset="/petrograd/img/cat_big_dessert.jpg">
-                <source media="(min-width: 1280px)" srcset="/petrograd/img/cat_semi_dessert.jpg">
-                <source media="(min-width: 764px)" srcset="/petrograd/img/cat_medium_dessert.jpg">
-                <img class="bannerImg" src="/petrograd/img/cat_small_dessert.jpg" alt="Click to open desserts">
-            </picture>
-            <h2>Dessert</h2>
-        </label>
-        <input type="checkbox" id="dessert" >
-
+        <!--Category start-->
+        <section id="dessertCat"></section>
+        <!--Category send-->
         <!--dishes start-->
         <section id="dessertCon">
         </section>
         <!--dishes end-->
-        <label for="drink">
-            <picture>
-                <source media="(min-width: 1920px)" srcset="/petrograd/img/cat_big_drinks.jpg">
-                <source media="(min-width: 1280px)" srcset="/petrograd/img/cat_semi_drinks.jpg">
-                <source media="(min-width: 764px)" srcset="/petrograd/img/cat_medium_drinks.jpg">
-                <img class="bannerImg" src="/petrograd/img/cat_small_drinks.jpg" alt="Click to open drinks">
-            </picture>
-            <h2>Drinks</h2>
-        </label>
-        <input type="checkbox" id="drink" >
 
+        <!--Category start-->
+        <section id="drinksCat"></section>
+        <!--Category send-->
         <!--dishes start-->
         <section id="drinksCon">
         </section>
         <!--dishes end-->
 
-        <label for="sides">
-            <picture>
-                <source media="(min-width: 1920px)" srcset="/petrograd/img/cat_big_sides.jpg">
-                <source media="(min-width: 1280px)" srcset="/petrograd/img/cat_semi_sides.jpg">
-                <source media="(min-width: 764px)" srcset="/petrograd/img/cat_medium_sides.jpg">
-                <img class="bannerImg" src="/petrograd/img/cat_small_sides.jpg" alt="Click to open sideorders">
-            </picture>
-            <h2>Sideorders</h2>
-        </label>
-        <input type="checkbox" id="sides" >
-        <section id="sidesCon">
-
-       <!--dishes start-->
+        <!--Category start-->
+        <section id="sidesCat"></section>
+        <!--Category send-->
+        <!--dishes start-->
         <section id="sideordersCon">
         </section>
         <!--dishes end-->
-
-        </section>
     </main>
-               <!--Templates-->
-                <template id="template">
-                <article class="dishContainer">
-                    <span class="rating">&starf;&starf;&starf;&starf;&star;</span>
-                    <h3 class="name">Russian Ringbread</h3>
-                    <div class="dishImgCon">
-                        <span class="soldOut hide">Sold Out</span>
-                        <p class="pDiscount hide">39</p>
-                        <p class="pFull">999,-</p>
-                        <img src="/petrograd/img/baltiskbondesuppe-md.jpg" alt="">
-                    </div>
-                    <div class="infoCon">
-                        <div class="allergi">
-                        </div>
-                        <div class="vegi hide">
-                            <span>vegetarian</span>
-                        </div>
-                    </div>
-                    <div >
-                        <p class="shortD"></p>
-                    </div>
-                </article>
-            </template>
+    <!--Templates-->
+    <template id="tempCat">
+        <picture>
+            <source media="(min-width: 1920px)" srcset="/petrograd/img/starter_cat_big.jpg">
+            <source media="(min-width: 1280px)" srcset="/petrograd/img/starter_cat_semi.jpg">
+            <source media="(min-width: 764px)" srcset="/petrograd/img/starter_cat_medium.jpg">
+            <img class="bannerImg" src="/petrograd/img/starter_cat_small.jpg" alt="Click to open starters">
+        </picture>
+        <h2></h2>
+    </template>
+
+    <template id="tempDishes">
+        <article class="dishContainer">
+            <span class="rating">&starf;&starf;&starf;&starf;&star;</span>
+            <h3 class="name">Russian Ringbread</h3>
+            <div class="dishImgCon">
+                <span class="soldOut hide">Sold Out</span>
+                <p class="pDiscount hide">39</p>
+                <p class="pFull">999,-</p>
+                <img src="/petrograd/img/baltiskbondesuppe-md.jpg" alt="">
+            </div>
+            <div class="infoCon">
+                <div class="allergi">
+                </div>
+                <div class="vegi hide">
+                    <span>vegetarian</span>
+                </div>
+            </div>
+            <div>
+                <p class="shortD"></p>
+            </div>
+            <button>See more</button>
+
+        </article>
+    </template>
+
     <script src="/petrograd/js/javascript.js"></script>
 </body>
 

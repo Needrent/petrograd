@@ -9,7 +9,7 @@ body,html{
     overflow-x: hidden;
     background: #040d13;
     color: white;
-    overflow-y: scroll; /* has to be scroll, not auto */
+    /*overflow-y: scroll; /* has to be scroll, not auto */
     -webkit-overflow-scrolling: touch;
 }
 @font-face{
@@ -199,7 +199,24 @@ h3{
     border-radius: 1rem 1rem 0 0;
 }
 .hide{
-    display: none;
+    display: none !important;
+}
+/* modal */
+.modal {
+    position: fixed;
+    width: calc(100% - 3rem);
+    height: calc(100vh - 3rem);
+    background: rgba(255,255,255,0.8);
+    z-index: 9000;
+    top: 0;
+    left: 0;
+    padding: 1.5rem;
+}
+aside.modal-content {
+    width: calc(100% - 3rem);
+    height: calc(100% - 3rem);
+    background: black;
+    padding: 1.5rem;
 }
 @media (min-width: 768px){
     #banLogo{
