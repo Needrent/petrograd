@@ -20,99 +20,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     const productImgLink = "https://kea-alt-del.dk/t5/site/imgs/";
     const productCatLink = "https://kea-alt-del.dk/t5/api/categories";
 
-    const pLink = "https://kea-alt-del.dk/t5/api/product?id=";
-
-    //Modal Exit
-    const modal = document.querySelector(".modal");
-    modal.addEventListener("click", () => modal.classList.add("hide"));
-
-
-
-    //Product list
-    fetch(productListLink).then(e => e.json()).then(data => data.forEach(showData));
-
-    function showData(oneObject) {
-        let clone = tempDishes.cloneNode(true);
-        clone.querySelector("h3").textContent = oneObject.name;
-        clone.querySelector(".pFull").textContent = oneObject.price + ",-";
-        clone.querySelector("img").src = productImgLink + "medium/" + oneObject.image + "-md.jpg";
-        clone.querySelector("img").alt = oneObject.image;
-        clone.querySelector(".shortD").textContent = oneObject.shortdescription;
-            showData();
-                //Modal add to products
-        function showData(product) {
-            const clone = tempDishes.cloneNode(true);
-
-            clone.querySelector("button").addEventListener("click", () => {
-                fetch(pLink + product.id).then(e => e.json()).then(data => showDetails(data));
-            });
-           /* console.log("modal function ran");
-            showDetails();
-*/
-
-        }
-            /* Modal button
-    function showDetails(data) {
-         modal.querySelector(".modal-name").textContent = oneObject.name;
-            modal.querySelector(".modal-img").src = productImgLink + "medium/" + oneObject.image + "-md.jpg";
-            modal.querySelector(".modal-img").alt = oneObject.image;
-            modal.querySelector(".modal-price").textContent = oneObject.price + ",-";
-            modal.querySelector(".modal-desc").textContent = data.longdescription;
-
-        modal.classList.remove("hide");
-    }*/
-
-
-        if (oneObject.discount > 0) {
-            // This changes the price
-            clone.querySelector(".pFull").textContent = oneObject.price - oneObject.discount + ",-";
-            //This shows the original price
-            clone.querySelector(".pDiscount").textContent = "before " + oneObject.price + ",-";
-            clone.querySelector(".pDiscount").classList.remove("hide");
-        } else {
-            clone.querySelector(".pFull").textContent = oneObject.price + ",-";
-        }
-
-        if (oneObject.soldout) {
-            clone.querySelector(".soldOut").classList.remove("hide");
-        }
-        /* Same Code needed for Allergi*/
-        if (oneObject.alcohol > 0) {
-            //console.log(oneObject.name + " " + oneObject.category);
-            const span = document.createElement("span");
-            span.textContent = oneObject.alcohol + " % alcohol";
-            clone.querySelector(".allergi").appendChild(span)
-        }
-
-        if (oneObject.vegetarian) {
-            clone.querySelector(".vegi").classList.remove("hide");
-        }
-        /* if(oneObject.stars){
-             clone.querySelector(".rating").textContent = "&starf;";
-             console.log(oneObject.stars);
-         }*/
-
-
-        /*Target Categories*/
-        if (oneObject.category == "starter") {
-            starterCon.appendChild(clone);
-        }
-        if (oneObject.category == "main") {
-            mainCon.appendChild(clone);
-        }
-        if (oneObject.category == "dessert") {
-            dessertCon.appendChild(clone);
-        }
-        if (oneObject.category == "drinks") {
-            drinksCon.appendChild(clone);
-        }
-        if (oneObject.category == "sideorders") {
-            sideordersCon.appendChild(clone);
-        }
-
-
-
-    }
+    const productLink = "https://kea-alt-del.dk/t5/api/product";
 
     // Category
     fetch(productCatLink).then(e => e.json()).then(dataCat => dataCat.forEach(showDataCat));
@@ -142,5 +50,57 @@ document.addEventListener("DOMContentLoaded", function (event) {
         }
     }
 
+    //Product list
+    fetch(productListLink).then(e => e.json()).then(data => data.forEach(showData));
 
+    function showData(oneObject) {
+        let clone = tempDishes.cloneNode(true);
+        clone.querySelector("h3").textContent = oneObject.name;
+        clone.querySelector(".pFull").textContent = oneObject.price + ",-";
+        clone.querySelector("img").src = productImgLink + "medium/" + oneObject.image + "-md.jpg";
+        clone.querySelector("img").alt = oneObject.image;
+        clone.querySelector(".shortD").textContent = oneObject.shortdescription;
+
+        if (oneObject.discount > 0) {
+            // This changes the price
+            clone.querySelector(".pFull").textContent = oneObject.price - oneObject.discount + ",-";
+            //This shows the original price
+            clone.querySelector(".pDiscount").textContent = "before " + oneObject.price + ",-";
+            clone.querySelector(".pDiscount").classList.remove("hide");
+        } else {
+            clone.querySelector(".pFull").textContent = oneObject.price + ",-";
+        }
+
+        if (oneObject.soldout) {
+            clone.querySelector(".soldOut").classList.remove("hide");
+        }
+        /* Same Code needed for Allergi*/
+        if (oneObject.alcohol > 0) {
+            //console.log(oneObject.name + " " + oneObject.category);
+            const span = document.createElement("span");
+            span.textContent = oneObject.alcohol + " % alcohol";
+            clone.querySelector(".allergi").appendChild(span)
+        }
+
+        if (oneObject.vegetarian) {
+            clone.querySelector(".vegi").classList.remove("hide");
+        }
+
+        /*Target Categories*/
+        if (oneObject.category == "starter") {
+            starterCon.appendChild(clone);
+        }
+        if (oneObject.category == "main") {
+            mainCon.appendChild(clone);
+        }
+        if (oneObject.category == "dessert") {
+            dessertCon.appendChild(clone);
+        }
+        if (oneObject.category == "drinks") {
+            drinksCon.appendChild(clone);
+        }
+        if (oneObject.category == "sideorders") {
+            sideordersCon.appendChild(clone);
+        }
+    }
 });
